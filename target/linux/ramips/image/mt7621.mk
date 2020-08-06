@@ -221,7 +221,7 @@ endef
 TARGET_DEVICES += dlink_dir-860l-b1
 
 define Device/d-team_newifi-d2
-  IMAGE_SIZE := 32448k
+  IMAGE_SIZE := 16064k
   DEVICE_VENDOR := Newifi
   DEVICE_MODEL := D2
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
