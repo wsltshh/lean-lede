@@ -10,10 +10,9 @@
 	model = "Newifi-D2";
 
 	aliases {
-		led-boot = &led_power_blue;
-		led-failsafe = &led_power_blue;
-		led-running = &led_power_blue;
-		led-upgrade = &led_power_blue;
+		led-boot = &usb;
+		led-failsafe = &usb;
+		led-upgrade = &usb;
 		label-mac-device = &ethernet;
 	};
 
@@ -24,40 +23,20 @@
 	leds {
 		compatible = "gpio-leds";
 
-		power-amber {
-			label = "newifi-d2:amber:power";
-			gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
-		};
-
-		led_power_blue: power-blue {
-			label = "newifi-d2:blue:power";
-			gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
-		};
-
-		internet-amber {
-			label = "newifi-d2:amber:internet";
-			gpios = <&gpio0 4 GPIO_ACTIVE_LOW>;
-		};
-
-		internet-blue {
-			label = "newifi-d2:blue:internet";
-			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-		};
-
 		wlan2g {
 			label = "newifi-d2:blue:wlan2g";
-			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 2 GPIO_ACTIVE_LOW>;
 		};
 
 		wlan5g {
 			label = "newifi-d2:blue:wlan5g";
-			gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
 		};
 
 		usb {
 			label = "newifi-d2:blue:usb";
-			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-			trigger-sources = <&xhci_ehci_port1>, <&ehci_port2>;
+			gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+			trigger-sources = <&xhci_ehci_port1>;
 			linux,default-trigger = "usbport";
 		};
 	};
@@ -79,7 +58,7 @@
 		power_usb3 {
 			gpio-export,name = "power_usb3";
 			gpio-export,output = <1>;
-			gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
 		};
 	};
 };
@@ -133,6 +112,11 @@
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
 		ieee80211-freq-limit = <2400000 2500000>;
+		
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
 	};
 };
 
@@ -141,6 +125,11 @@
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
+
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
 	};
 };
 
@@ -150,7 +139,7 @@
 
 &state_default {
 	gpio {
-		ralink,group = "i2c", "jtag", "uart2", "uart3";
+		ralink,group = "i2c", "uart2", "uart3", "wdt";
 		ralink,function = "gpio";
 	};
 };
