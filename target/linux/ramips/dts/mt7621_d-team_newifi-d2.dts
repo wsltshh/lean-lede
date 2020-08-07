@@ -9,13 +9,6 @@
 	compatible = "d-team,newifi-d2", "mediatek,mt7621-soc";
 	model = "Newifi-D2";
 
-	aliases {
-		led-boot = &usb;
-		led-failsafe = &usb;
-		led-upgrade = &usb;
-		label-mac-device = &ethernet;
-	};
-
 	chosen {
 		bootargs = "console=ttyS0,115200";
 	};
@@ -46,7 +39,7 @@
 
 		reset {
 			label = "reset";
-			gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
 			linux,code = <KEY_RESTART>;
 		};
 	};
@@ -58,7 +51,7 @@
 		power_usb3 {
 			gpio-export,name = "power_usb3";
 			gpio-export,output = <1>;
-			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio0 10 GPIO_ACTIVE_HIGH>;
 		};
 	};
 };
@@ -111,12 +104,6 @@
 	mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
-		ieee80211-freq-limit = <2400000 2500000>;
-		
-		led {
-			led-sources = <2>;
-			led-active-low;
-		};
 	};
 };
 
