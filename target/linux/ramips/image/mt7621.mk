@@ -221,7 +221,7 @@ endef
 TARGET_DEVICES += dlink_dir-860l-b1
 
 define Device/d-team_newifi-d2
-  IMAGE_SIZE := 16064k
+  IMAGE_SIZE := 32448k
   DEVICE_VENDOR := Newifi
   DEVICE_MODEL := D2
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
@@ -422,6 +422,16 @@ define Device/iptime_a8004t
   DEVICE_PACKAGES := kmod-mt7615e kmod-usb3 wpad-openssl
 endef
 TARGET_DEVICES += iptime_a8004t
+
+define Device/jcg_jhr-ac836pro-v1
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := JCG
+  DEVICE_MODEL := JHR-AC836PRO
+  DEVICE_VARIANT := v1
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+	kmod-usb-ledtrig-usbport wpad-openssl
+endef
+TARGET_DEVICES += jcg_jhr-ac836pro-v1
 
 define Device/jcg_jhr-ac876m
   IMAGE_SIZE := 16064k
