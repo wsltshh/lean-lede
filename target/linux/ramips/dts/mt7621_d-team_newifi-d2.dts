@@ -18,12 +18,12 @@
 
 		wlan2g {
 			label = "newifi-d2:blue:wlan2g";
-			gpios = <&gpio0 12 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
 		};
 
 		wlan5g {
 			label = "newifi-d2:blue:wlan5g";
-			gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
 		};
 
 		usb {
