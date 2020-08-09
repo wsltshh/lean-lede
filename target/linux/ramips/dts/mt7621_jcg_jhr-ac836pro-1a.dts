@@ -18,7 +18,7 @@
 		compatible = "gpio-leds";
 
 		usb {
-			label = "jhr-ac836pro-1a:usb";
+			label = "836-usb";
 			gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
 			trigger-sources = <&xhci_ehci_port1>;
 			linux,default-trigger = "usbport";
