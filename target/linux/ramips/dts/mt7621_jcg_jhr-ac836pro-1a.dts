@@ -17,8 +17,8 @@
 	leds {
 		compatible = "gpio-leds";
 
-		usb3 {
-			label = "jhr-ac836pro-1a:blue:usb3";
+		usb {
+			label = "jhr-ac836pro-1a:blue:usb";
 			gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
 			trigger-sources = <&xhci_ehci_port1>;
 			linux,default-trigger = "usbport";
@@ -112,7 +112,7 @@
 
 &state_default {
 	gpio {
-		ralink,group = "i2c", "uart3";
+		ralink,group = "uart3", "jtag";
 		ralink,function = "gpio";
 	};
 };
