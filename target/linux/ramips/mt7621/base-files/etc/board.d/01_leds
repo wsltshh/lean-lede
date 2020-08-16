@@ -34,6 +34,13 @@ gnubee,gb-pc2)
 	ucidef_set_led_switch "lan1" "lan1" "$boardname:green:lan1" "switch0" "0x01"
 	ucidef_set_led_switch "lan2" "lan2" "$boardname:green:lan2" "switch0" "0x10"
 	;;
+jcg,jhr-ac836pro-1a)
+	ucidef_set_led_switch "wan" "WAN" "836:white-wan" "switch0" "0x10"
+	ucidef_set_led_switch "lan1" "LAN1" "836:white-lan1" "switch0" "0x08"
+	ucidef_set_led_switch "lan2" "LAN2" "836:white-lan2" "switch0" "0x04"
+	ucidef_set_led_switch "lan3" "LAN3" "836:white-lan3" "switch0" "0x02"
+	ucidef_set_led_switch "lan4" "LAN4" "836:white-lan4" "switch0" "0x01"
+	;;
 linksys,ea7500-v2)
 	ucidef_set_led_netdev "lan1" "lan1 link" "$boardname:green:lan1" "lan1" "link"
 	ucidef_set_led_netdev "lan2" "lan2 link" "$boardname:green:lan2" "lan2" "link"
@@ -59,8 +66,6 @@ netgear,r6850|\
 netgear,wndr3700-v5)
 	ucidef_set_led_switch "wan" "wan" "$boardname:green:wan" "switch0" "0x10"
 	;;
-
-jcg,jhr-ac836pro-1a|\
 netgear,r6700-v2|\
 netgear,r6800)
 	ucidef_set_led_switch "wan" "WAN" "$boardname:white:wan" "switch0" "0x10"
