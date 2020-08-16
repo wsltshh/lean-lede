@@ -59,6 +59,8 @@ netgear,r6850|\
 netgear,wndr3700-v5)
 	ucidef_set_led_switch "wan" "wan" "$boardname:green:wan" "switch0" "0x10"
 	;;
+
+jcg,jhr-ac836pro-1a|\
 netgear,r6700-v2|\
 netgear,r6800)
 	ucidef_set_led_switch "wan" "WAN" "$boardname:white:wan" "switch0" "0x10"
