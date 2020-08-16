@@ -42,7 +42,7 @@
 	w25q128@0 {
 		compatible = "jedec,spi-nor";
 		reg = <0>;
-		spi-max-frequency = <40000000>;
+		spi-max-frequency = <20000000>;
 
 		partitions {
 			compatible = "fixed-partitions";
@@ -106,69 +106,6 @@
 
 &ethernet {
 	mtd-mac-address = <&factory 0xe000>;
-};
-
-&i2c {
-	status = "okay";
-
-	gpio_expander: i2c0gpio-expander@20{
-		#gpio-cells = <2>;
-		#interrupt-cells = <2>;
-		compatible = "semtech,sx1503q";
-		reg = <0x20>;
-
-		gpio-controller;
-
-		wan_orange {
-			gpios = <&gpio_expander 0 GPIO_ACTIVE_LOW>;
--			label = "836:orange-wan";
-		};
-
-		wan_white {
-			gpios = <&gpio_expander 1 GPIO_ACTIVE_LOW>;
-			label = "836:white-wan";
-		};
-
-		lan1_orange {
-			gpios = <&gpio_expander 2 GPIO_ACTIVE_LOW>;
-			label = "836:orange-lan1";
-		};
-
-		lan1_white {
-			gpios = <&gpio_expander 3 GPIO_ACTIVE_LOW>;
-			label = "836:white-lan1";
-		};
-
-		lan2_orange {
-			gpios = <&gpio_expander 4 GPIO_ACTIVE_LOW>;
-			label = "836:orange-lan2";
-		};
-
-		lan2_white {
-			gpios = <&gpio_expander 5 GPIO_ACTIVE_LOW>;
-			label = "839:white-lan2";
-		};
-
-		lan3_orange {
-			gpios = <&gpio_expander 6 GPIO_ACTIVE_LOW>;
-			label = "836:orange-lan3";
-		};
-
-		lan3_white {
-			gpios = <&gpio_expander 7 GPIO_ACTIVE_LOW>;
-			label = "836:white-lan3";
-		};
-
-		lan4_orange {
-			gpios = <&gpio_expander 8 GPIO_ACTIVE_LOW>;
-			label = "836:orange-lan4";
-		};
-
-		lan4_white {
-			gpios = <&gpio_expander 9 GPIO_ACTIVE_LOW>;
-			label = "836:white-lan4";
-		};
-	};
 };
 
 &state_default {
