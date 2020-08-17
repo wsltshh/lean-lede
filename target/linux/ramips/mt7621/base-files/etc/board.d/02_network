@@ -13,6 +13,7 @@ ramips_setup_interfaces()
 	afoundry,ew1200|\
 	d-team,pbr-m1|\
 	firefly,firewrt|\
+	jcg,jhr-ac836pro-1a|\
 	jcg,jhr-ac876m|\
 	mediatek,ap-mt7621a-v60|\
 	mediatek,mt7621-eval-board|\
@@ -91,7 +92,6 @@ ramips_setup_interfaces()
 		ucidef_add_switch "switch0" \
 			"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"
 		;;
-	jcg,jhr-ac836pro-1a|\
 	d-team,newifi-d2)
 		ucidef_add_switch "switch0" \
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"
