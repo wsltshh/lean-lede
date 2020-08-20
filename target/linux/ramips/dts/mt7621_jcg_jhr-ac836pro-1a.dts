@@ -39,10 +39,10 @@
 &spi0 {
 	status = "okay";
 
-	w25q128@0 {
+	m25p80@0 {
 		compatible = "jedec,spi-nor";
 		reg = <0>;
-		spi-max-frequency = <20000000>;
+		spi-max-frequency = <10000000>;
 
 		partitions {
 			compatible = "fixed-partitions";
