@@ -489,6 +489,16 @@ define Device/iptime_a8004t
 endef
 TARGET_DEVICES += iptime_a8004t
 
+define Device/jcg_jhr-ac836pro-1a
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := JCG
+  DEVICE_MODEL := JHR-AC836PRO
+  DEVICE_VARIANT := 1A
+  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 \
+	kmod-usb-ledtrig-usbport luci-app-mtwifi
+endef
+TARGET_DEVICES += jcg_jhr-ac836pro-1a
+
 define Device/jcg_jhr-ac876m
   IMAGE_SIZE := 16064k
   IMAGES += factory.bin
