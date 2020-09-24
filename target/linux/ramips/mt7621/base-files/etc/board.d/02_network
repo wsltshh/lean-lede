@@ -18,7 +18,8 @@ ramips_setup_interfaces()
 	xiaomi,mir3g-v2)
 		ucidef_set_interfaces_lan_wan "lan1 lan2" "wan"
 		;;
-	d-team,newifi-d2)
+	d-team,newifi-d2|\
+	jcg,jhr-ac836pro-1a)
 		ucidef_add_switch "switch0" \
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"
 		ucidef_set_interface_lan "eth0.1 ra0 rai0"
@@ -64,10 +65,10 @@ ramips_setup_interfaces()
 		ucidef_set_interface_lan "eth0.1 ra0 rax0"
 		;;
 	ubnt,edgerouter-x)
-		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4" "eth0"
+		ucidef_set_interface_lan_wan "eth1 eth2 eth3 eth4" "eth0"
 		;;
 	ubnt,edgerouter-x-sfp)
-		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4 eth5" "eth0"
+		ucidef_set_interface_lan_wan "eth1 eth2 eth3 eth4 eth5" "eth0"
 		;;
 	xiaomi,mir3g)
 		ucidef_add_switch "switch0" \
@@ -109,7 +110,8 @@ ramips_setup_macs()
 		wan_mac="$(grep -m1 mac= "/dev/mtd${index}" | cut -d= -f2)"
 		lan_mac=$wan_mac
 		;;
-	d-team,newifi-d2)
+	d-team,newifi-d2|\
+	jcg,jhr-ac836pro-1a)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(mtd_get_mac_binary factory 0xe006)
 		;;
@@ -152,13 +154,10 @@ ramips_setup_macs()
 		wan_mac=$(mtd_get_mac_binary factory 0xe006)
 		;;
 	xiaomi,mir3g|\
+	xiaomi,mir4|\
 	xiaomi,mi-router-ac2100|\
 	xiaomi,redmi-router-ac2100)
 		lan_mac=$(cat /sys/class/net/eth0/address)
-		wan_mac=$(mtd_get_mac_binary factory 0xe000)
-		;;
-	xiaomi,mir4)
-		lan_mac=$(mtd_get_mac_binary factory 0xe006)
 		wan_mac=$(mtd_get_mac_binary factory 0xe000)
 		;;
 	zbtlink,zbt-we1326|\
