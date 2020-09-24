@@ -123,7 +123,7 @@
 
 &state_default {
 	gpio {
-		ralink,group = "uart3",;
-		ralink,function = "gpio";
+		groups = "uart3";
+		function = "gpio";
 	};
 };
