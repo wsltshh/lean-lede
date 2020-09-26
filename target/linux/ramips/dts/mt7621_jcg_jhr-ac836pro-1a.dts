@@ -9,6 +9,10 @@
 	compatible = "jcg,jhr-ac836pro-1a", "mediatek,mt7621-soc";
 	model = "JCG JHR-AC836PRO 1A";
 
+	aliases {
+		label-mac-device = &ethernet;
+	};
+
 	chosen {
 		bootargs = "console=ttyS0,115200";
 	};
@@ -83,6 +87,10 @@
 	mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
+
+		led {
+			led-active-low;
+		};
 	};
 };
 
