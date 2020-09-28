@@ -34,7 +34,7 @@ config MT76X2E_AP_MBSS_NEW_MBSSID_MODE
 
 config MT76X2E_AP_APCLI
 	bool
-	default n
+	default y
 
 config MT76X2E_AP_80211AC_VHT
 	bool
