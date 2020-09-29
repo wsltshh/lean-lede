@@ -8,10 +8,6 @@
 / {
 	compatible = "jcg,jhr-ac836pro-1a", "mediatek,mt7621-soc";
 	model = "JCG JHR-AC836PRO 1A";
-	
-	aliases {
-		label-mac-device = &ethernet;
-	};
 
 	chosen {
 		bootargs = "console=ttyS0,115200";
