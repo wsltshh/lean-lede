@@ -22,7 +22,6 @@ ramips_setup_interfaces()
 	jcg,jhr-ac836pro-1a)
 		ucidef_add_switch "switch0" \
 			"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"
-		ucidef_set_interface_lan "eth0.1 ra0 rai0"
 		;;
 	hiwifi,hc5962|\
 	xiaomi,mir3p)
@@ -112,7 +111,6 @@ ramips_setup_macs()
 		;;
 	d-team,newifi-d2|\
 	jcg,jhr-ac836pro-1a)
-		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(mtd_get_mac_binary factory 0xe006)
 		;;
 	dlink,dir-860l-b1)
