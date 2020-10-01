@@ -494,8 +494,8 @@ define Device/jcg_jhr-ac836pro-1a
   DEVICE_VENDOR := JCG
   DEVICE_MODEL := JHR-AC836PRO
   DEVICE_VARIANT := 1A
-  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 \
-	kmod-usb-ledtrig-usbport luci-app-mtwifi
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
+	kmod-usb-ledtrig-usbport wpad-openssl
 endef
 TARGET_DEVICES += jcg_jhr-ac836pro-1a
 
