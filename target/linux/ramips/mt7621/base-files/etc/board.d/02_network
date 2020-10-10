@@ -62,7 +62,8 @@ ramips_setup_interfaces()
 	motorola,mr2600)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4 ra0 rai0" "wan"
 		;;
-	phicomm,k2p)
+	phicomm,k2p|\
+	xiaoyu,xy-c5)
 		ucidef_add_switch "switch0" \
 			"0:lan" "1:lan" "2:lan" "3:lan" "4:wan" "6@eth0"
 		ucidef_set_interface_lan "eth0.1 ra0 rax0"
@@ -80,7 +81,7 @@ ramips_setup_interfaces()
 		;;
 	xiaomi,mir4)
 		ucidef_add_switch "switch0" \
-			"1:lan:1" "2:lan:2" "4:wan" "6t@eth0"
+			"1:lan:2" "2:lan:1" "4:wan" "6t@eth0"
 		ucidef_set_interface_lan "eth0.1 ra0 rai0"
 		;;
 	xiaomi,mi-router-ac2100|\
@@ -145,10 +146,6 @@ ramips_setup_macs()
 		wan_mac=$lan_mac
 		label_mac=$lan_mac
 		;;
-	jcg,jhr-ac836pro-1a)
-		lan_mac=$(mtd_get_mac_binary factory 0xe000)
-		wan_mac=$(mtd_get_mac_binary factory 0xe006)
-		;;
 	mikrotik,routerboard-750gr3|\
 	mikrotik,routerboard-m11g|\
 	mikrotik,routerboard-m33g)
@@ -156,7 +153,8 @@ ramips_setup_macs()
 		wan_mac=$label_mac
 		lan_mac=$(macaddr_add $label_mac 1)
 		;;
-	phicomm,k2p)
+	phicomm,k2p|\
+	jcg,jhr-ac836pro-1a)
 		wan_mac=$(mtd_get_mac_binary factory 0xe006)
 		;;
 	xiaomi,mir3g|\
@@ -168,6 +166,9 @@ ramips_setup_macs()
 	xiaomi,mir4)
 		lan_mac=$(mtd_get_mac_binary factory 0xe006)
 		wan_mac=$(mtd_get_mac_binary factory 0xe000)
+		;;
+	xiaoyu,xy-c5)
+		wan_mac=$(macaddr_add "$(mtd_get_mac_binary factory 0x4)" 1)
 		;;
 	zbtlink,zbt-we1326|\
 	zbtlink,zbt-wg3526-16m|\
